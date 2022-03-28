@@ -27,17 +27,17 @@ Frontend and backend must be installed separetly
 
 Port for Frontend is set to 5000, in case to change port, go:
 
-frontend -> packcage.json -> "scripts": {
-"start": "dead-server --port=5000 --host=localhost"
-},
+> frontend -> packcage.json -> "scripts": {
+> "start": "dead-server --port=5000 --host=localhost"
+> },
 
-next step, correct port:
+next, correct port in const url:
 
-frontend -> assets -> js -> common.js -> const url = 'http://localhost:5001'
+> frontend -> assets -> js -> common.js -> const url = 'http://localhost:5001'
 
 Port for Backend is set to 5001. In case to change this port, go:
 
-backend -> index.js -> app.listen(5001, () => {
+> backend -> index.js -> app.listen(5001, () => {
 
 ## Authors
 
