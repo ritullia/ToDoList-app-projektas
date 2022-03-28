@@ -29,8 +29,8 @@ const getData = () => {
                     html += `<li data-id="${value.id}">
                             <input type="checkbox" class="mass-delete edit-mode"/>
                             <a class="mark-done ${done}">${value.task}</a>
-                            <a class="btn btn-primary delete-todo">Trinti</a>
-                            <a class="btn btn-success update-todo">Redaguoti</a>
+                            <a class="btn btn-primary fa fa-trash delete-todo" aria-hidden="true"></a>
+                            <a class="btn btn-success fa fa-pencil update-todo" aria-hidden="true"></a>
                         </li>`
                 })
 
@@ -104,11 +104,18 @@ const getData = () => {
                 })
 
             } else {
-                let messages = document.querySelector('.messages')
-
-                messages.innerHTML = resp.message
-                messages.classList.add('show')
+                messages(resp.message, resp.status)
             }
+            let count = resp.data.length;
+            let tasksDone = 0;
+            resp.data.forEach(element => {
+                if (element.done === true) {
+                    tasksDone++;
+                }
+            })
+            document.querySelector('.count').innerHTML = tasksDone + ' from ' + count + ' tasks done';
+            let percentage = (tasksDone / count * 100).toFixed(0);
+            document.querySelector('.progress').style.width = percentage + '%';
         })
 
 }

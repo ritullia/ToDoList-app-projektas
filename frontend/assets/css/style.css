@@ -1,3 +1,5 @@
+@import './font-awesome.min.css';
+
 body {
     background: #b6ffce;
 }
@@ -23,6 +25,8 @@ body {
 
 .messages.show {
     display: block;
+    font-size: 15px;
+    color: #3cc76a;
 }
 
 .mark-done {
@@ -51,7 +55,7 @@ li {
 }
 
 .edit-mode {
-    background: #f7baee;
+    background: #95f7e5;
 }
 
 .actions {
@@ -62,4 +66,8 @@ li {
 .delete-todo {
     float: right;
     margin-left: 5px;
+}
+
+.btn-secondary {
+    float: right;
 }
