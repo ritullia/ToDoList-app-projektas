@@ -13,19 +13,13 @@ Site published at:
 
 ## Project features
 
----
-
 -   Github pages
 -   CSS
 -   JavaScript
 -   HTML
 -   Node.js
 
----
-
 ## Instalation
-
----
 
 Frontend and backend must be installed separetly
 
@@ -44,8 +38,6 @@ frontend -> assets -> js -> common.js -> const url = 'http://localhost:5001'
 Port for Backend is set to 5001. In case to change this port, go:
 
 backend -> index.js -> app.listen(5001, () => {
-
----
 
 ## Authors
 
