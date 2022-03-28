@@ -1,0 +1,65 @@
+body {
+    background: #b6ffce;
+}
+
+.todo-container {
+    background: #f6ffa4;
+    max-width: 600px;
+    margin-top: 2rem;
+    padding: 2rem;
+    font-size: 22px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+        sans-serif;
+}
+
+.list-heading {
+    text-align: center;
+    color: #3cc76a;
+}
+
+.messages {
+    display: none;
+}
+
+.messages.show {
+    display: block;
+}
+
+.mark-done {
+    text-decoration: none;
+}
+.mark-done.done {
+    text-decoration: line-through;
+    color: #3cc76a;
+}
+
+#todos ul {
+    list-style: none;
+    margin: 0;
+    padding: 0px;
+}
+
+#todos ul > li {
+    padding: 5px 0;
+    border-bottom: 0.5px #134a4a;
+}
+
+li {
+    display: block;
+    font-size: 24px;
+    margin: 25px 0;
+}
+
+.edit-mode {
+    background: #f7baee;
+}
+
+.actions {
+    padding-top: 15px;
+}
+
+.update-todo,
+.delete-todo {
+    float: right;
+    margin-left: 5px;
+}
