@@ -1,17 +1,17 @@
 .progress-container {
     height: 3rem;
     width: 16rem;
-    border-radius: 0.4rem;
+    border-radius: 1rem;
     position: relative;
-    background: #219f94;
+    background: #fa55a7;
 }
 
 .progress-container .progress {
     height: 100%;
     width: 0;
-    border-radius: 0.4rem;
+    border-radius: 1rem;
     position: absolute;
-    background: #2a1698;
+    background: #d30350;
     transition: width 0.4s ease;
     text-align: center;
     justify-content: center;

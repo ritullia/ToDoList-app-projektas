@@ -1,11 +1,13 @@
 @import './font-awesome.min.css';
 
 body {
-    background: #b6ffce;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQur6QIqIjRqItDtYEd3H5CGaaNNbvOFRVuIw&usqp=CAU);
+    background-repeat: cover;
+    background-size: 100%;
 }
 
 .todo-container {
-    background: #f6ffa4;
+    background: #f1b0b9;
     max-width: 600px;
     margin-top: 2rem;
     padding: 2rem;
@@ -16,7 +18,7 @@ body {
 
 .list-heading {
     text-align: center;
-    color: #3cc76a;
+    color: #06a77d;
 }
 
 .messages {
@@ -26,15 +28,16 @@ body {
 .messages.show {
     display: block;
     font-size: 15px;
-    color: #3cc76a;
+    color: #06a77d;
 }
 
 .mark-done {
     text-decoration: none;
+    color: #fff;
 }
 .mark-done.done {
     text-decoration: line-through;
-    color: #3cc76a;
+    color: #06a77d;
 }
 
 #todos ul {
@@ -45,7 +48,7 @@ body {
 
 #todos ul > li {
     padding: 5px 0;
-    border-bottom: 0.5px #134a4a;
+    border-bottom: 0.5px #06a77d;
 }
 
 li {
@@ -55,7 +58,7 @@ li {
 }
 
 .edit-mode {
-    background: #95f7e5;
+    background: #d0ece7;
 }
 
 .actions {
@@ -70,4 +73,13 @@ li {
 
 .btn-secondary {
     float: right;
+    color: #fbfbfb;
+    background-color: #f1a208;
+    border: none;
+}
+
+.btn-outline-secondary {
+    background-color: #f1a208;
+    border: none;
+    color: #fff;
 }

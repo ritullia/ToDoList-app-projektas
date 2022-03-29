@@ -106,16 +106,6 @@ const getData = () => {
             } else {
                 messages(resp.message, resp.status)
             }
-            let count = resp.data.length;
-            let tasksDone = 0;
-            resp.data.forEach(element => {
-                if (element.done === true) {
-                    tasksDone++;
-                }
-            })
-            document.querySelector('.count').innerHTML = tasksDone + ' from ' + count + ' tasks done';
-            let percentage = (tasksDone / count * 100).toFixed(0);
-            document.querySelector('.progress').style.width = percentage + '%';
         })
 
 }
