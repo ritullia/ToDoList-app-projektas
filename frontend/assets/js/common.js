@@ -20,7 +20,7 @@ const transferData = async (url, method = 'GET', data = {}) => {
         method: method,
         headers: {
             'Content-Type': 'application/json'
-        },
+        }
 
     }
 
@@ -66,6 +66,8 @@ const getData = () => {
                                 if (resp.status === 'success') {
                                     getData()
                                 }
+
+                                messages(resp.message, resp.status)
                             })
 
                     })
@@ -79,7 +81,6 @@ const getData = () => {
 
 
                         transferData(url + '/' + id)
-                            .then(resp => resp.json())
                             .then(resp => {
                                 if (resp.status === 'success') {
                                     mainInput.value = resp.data.task
@@ -101,8 +102,6 @@ const getData = () => {
 
                     element.addEventListener('click', () => {
 
-
-
                         transferData(url + '/delete-todo/' + id, 'DELETE')
                             .then(resp => {
                                 if (resp.status === 'success') {
@@ -116,7 +115,10 @@ const getData = () => {
                 })
 
             } else {
-                messages(resp.message, resp.status)
+                let messages = document.querySelector('.messages')
+
+                messages.innerHTML = resp.message
+                messages.classList.add('show')
             }
         })
 
@@ -148,7 +150,9 @@ addButton.addEventListener('click', () => {
 
     transferData(route, method, { task })
         .then(resp => {
-            getData()
+            if (resp.status === 'success') {
+                getData()
+            }
 
             mainInput.value = ''
             mainInput.classList.remove('edit-mode')

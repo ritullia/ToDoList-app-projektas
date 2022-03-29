@@ -1,9 +1,14 @@
-import { writeFile, readFile } from 'fs'
+import get from './controllers/get.js'
+import post from './controllers/post.js'
+import put from './controllers/put.js'
+import dlt from './controllers/delete.js'
+import { readFile, writeFile } from 'fs'
 import express from 'express'
 import cors from 'cors'
 
-const app = express()
 const database = 'database.json'
+const app = express()
+
 
 app.use(cors())
 
@@ -13,7 +18,12 @@ app.use(express.urlencoded({
     extended: false
 }))
 
-app.get('/', (req, res) => {
+app.use('/', get)
+app.use('/', post)
+app.use('/', put)
+app.use('/', dlt)
+
+get.get('/', (req, res) => {
 
     readFile(database, 'utf8', (err, data) => {
         if (err) {
@@ -28,7 +38,7 @@ app.get('/', (req, res) => {
 
 
 // naujas  /:id routeris
-app.get('/:id', (req, res) => {
+get.get('/:id', (req, res) => {
     let id = req.params.id
 
     readFile(database, 'utf8', (err, data) => {
@@ -52,7 +62,7 @@ app.get('/:id', (req, res) => {
 
 })
 
-app.post('/add-todo', (req, res) => {
+post.post('/add-todo', (req, res) => {
     let task = req.body.task
 
     readFile(database, 'utf8', (err, data) => {
@@ -82,7 +92,7 @@ app.post('/add-todo', (req, res) => {
 })
 
 // naujas /edit-todo/:id routeris
-app.put('/edit-todo/:id', (req, res) => {
+put.put('/edit-todo/:id', (req, res) => {
     let id = req.params.id
     let task = req.body.task
 
@@ -123,7 +133,7 @@ app.put('/edit-todo/:id', (req, res) => {
 
 
 
-app.delete('/delete-todo/:id', (req, res) => {
+dlt.delete('/delete-todo/:id', (req, res) => {
     let id = req.params.id
 
     readFile(database, 'utf8', (err, data) => {
@@ -156,7 +166,7 @@ app.delete('/delete-todo/:id', (req, res) => {
     })
 })
 
-app.delete('/mass-delete', (req, res) => {
+dlt.delete('/mass-delete', (req, res) => {
     let ids = req.body.ids
 
     readFile(database, 'utf8', (err, data) => {
@@ -189,7 +199,7 @@ app.delete('/mass-delete', (req, res) => {
 
 })
 
-app.put('/mark-done/:id', (req, res) => {
+put.put('/mark-done/:id', (req, res) => {
     let id = req.params.id
 
     readFile(database, 'utf8', (err, data) => {
